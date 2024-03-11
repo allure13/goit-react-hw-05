@@ -6,14 +6,13 @@ export default function MovieList({ movies }) {
 
   return (
     <ul>
-      {movies &&
-        movies.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`/movies/${id}`} state={{ from: location }}>
-              {title}
-            </Link>
-          </li>
-        ))}
+      {movies.map(({ id, title }) => (
+        <li key={id}>
+          <Link to={`/movies/${id}`} state={{ from: location }}>
+            {title}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 }

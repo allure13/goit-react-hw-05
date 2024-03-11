@@ -15,5 +15,5 @@ const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 export const fetchMovie = async () => {
   const response = await axios.get(url, options).catch(err => console.log(err));
 
-  return response.data;
+  return response.data.results;
 };

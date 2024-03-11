@@ -15,8 +15,6 @@ export default function HomePage() {
         const data = await fetchMovie();
 
         setMovies(data);
-
-        // console.log(data);
       } catch (error) {
         setError(error);
       } finally {
@@ -26,14 +24,12 @@ export default function HomePage() {
     fetchData();
   }, []);
 
-  //   console.log(movies);
   return (
     <>
       <h1>Trending today</h1>
       {isLoading && <Loader />}
       {error && <div>Something went wrong. Try reload</div>}
       {<MovieList movies={movies} />}
-      {console.log('HomePage movies', movies)}
     </>
   );
 }
