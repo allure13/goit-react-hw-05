@@ -1,0 +1,38 @@
+import { useEffect, useState } from 'react';
+import { fetchMovie } from '../movies-api';
+import Loader from '../components/Loader/Loader';
+import MovieList from '../components/MovieList/MovieList';
+
+export default function HomePage() {
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const data = await fetchMovie();
+        setMovies(data);
+
+        // console.log(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  //   console.log(movies);
+  return (
+    <>
+      <h1>Trending today</h1>
+      {movies.length > 0 && <MovieList movies={movies} />}
+      {console.log('HomePage movies', movies)}
+      {isLoading && <Loader />}
+      {error && <div>Something went wrong. Try reload</div>}
+    </>
+  );
+}
