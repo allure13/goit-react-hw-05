@@ -1,6 +1,10 @@
 .navi {
   display: flex;
-  gap: 8px;
+  gap: 15px;
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+  background-color: rgb(216, 186, 141);
 }
 
 .link {
@@ -9,10 +13,12 @@
   font-size: 20px;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
   text-decoration: underline;
+  color: blueviolet;
 }
 
-.isActive {
+.active {
   color: rgb(70, 29, 14);
 }
