@@ -13,6 +13,7 @@ export default function HomePage() {
       setIsLoading(true);
       try {
         const data = await fetchMovie();
+
         setMovies(data);
 
         // console.log(data);
@@ -29,10 +30,10 @@ export default function HomePage() {
   return (
     <>
       <h1>Trending today</h1>
-      {movies.length > 0 && <MovieList movies={movies} />}
-      {console.log('HomePage movies', movies)}
       {isLoading && <Loader />}
       {error && <div>Something went wrong. Try reload</div>}
+      {<MovieList movies={movies} />}
+      {console.log('HomePage movies', movies)}
     </>
   );
 }
