@@ -1,3 +1,7 @@
-export default function MoviesPage(second) {
-  third;
+export default function MoviesPage() {
+  return (
+    <>
+      <p>MoviesPage</p>
+    </>
+  );
 }
