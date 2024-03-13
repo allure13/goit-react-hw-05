@@ -17,3 +17,27 @@ export const fetchMovie = async () => {
 
   return response.data.results;
 };
+
+export const searchMovie = async query => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    options,
+  );
+  return response.data.results;
+};
+
+export const movieDetails = async movieId => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+    options,
+  );
+  return response.data;
+};
+
+// export const movieCredits = async castInfo => {
+//   const response = await axios.get(
+//     `https://api.themoviedb.org/3/movie/${castInfo}/credits?language=en-US`,
+//     options,
+//   );
+//   return response.data;
+// };
