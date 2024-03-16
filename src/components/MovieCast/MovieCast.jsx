@@ -9,7 +9,10 @@ export default function MovieCast() {
   const [info, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const defaultPoster = `https://pixabay.com/ru/photos/%D0%B1%D0%B5%D0%BB%D0%BA%D0%B0-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0-%D0%B3%D1%80%D1%8B%D0%B7%D1%83%D0%BD-8592682/`;
+  const defaultPoster =
+    'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
+  const defaultWidth = 180;
+  const defaultHeight = 270;
 
   useEffect(() => {
     async function getInfo() {
@@ -41,7 +44,8 @@ export default function MovieCast() {
                     ? `https://image.tmdb.org/t/p/w500${profile_path}`
                     : defaultPoster
                 }
-                width={300}
+                width={profile_path ? 300 : defaultWidth}
+                height={profile_path ? 450 : defaultHeight}
                 alt={name}
               />
               <p className={css.title}>{name}</p>
