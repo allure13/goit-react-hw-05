@@ -1,3 +1,6 @@
+import css from './SearchForm.module.css';
+import { FcSearch } from 'react-icons/fc';
+
 export const SearchForm = ({ onHandleSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -7,9 +10,11 @@ export const SearchForm = ({ onHandleSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="text" />
-      <button type="submit">Search</button>
+    <form className={css.form} onSubmit={handleSubmit}>
+      <input className={css.input} type="text" name="text" />
+      <button className={css.btn} type="submit">
+        <FcSearch size={20} />
+      </button>
     </form>
   );
 };

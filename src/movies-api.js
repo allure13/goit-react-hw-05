@@ -34,10 +34,18 @@ export const movieDetails = async movieId => {
   return response.data;
 };
 
-// export const movieCredits = async castInfo => {
-//   const response = await axios.get(
-//     `https://api.themoviedb.org/3/movie/${castInfo}/credits?language=en-US`,
-//     options,
-//   );
-//   return response.data;
-// };
+export const movieCredits = async movieId => {
+  const response = await axios.get(
+    `movie/${movieId}/credits?language=en-US`,
+    options,
+  );
+  return response.data.cast;
+};
+
+export const movieReview = async movieId => {
+  const response = await axios.get(
+    `movie/${movieId}/reviews?language=en-US&page=1`,
+    options,
+  );
+  return response.data.results;
+};

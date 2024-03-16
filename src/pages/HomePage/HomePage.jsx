@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchMovie } from '../movies-api';
-import Loader from '../components/Loader/Loader';
-import MovieList from '../components/MovieList/MovieList';
+import { fetchMovie } from '../../movies-api';
+import Loader from '../../components/Loader/Loader';
+import MovieList from '../../components/MovieList/MovieList';
+import css from './HomePage.module.css';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -26,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <h1 className={css.title}>Trending today</h1>
       {isLoading && <Loader />}
       {error && <div>Something went wrong. Try reload</div>}
       {<MovieList movies={movies} />}
